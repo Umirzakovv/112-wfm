@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../style/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/reusable/Header";
+import MainContent from "@/components/reusable/MainContent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-bg_color`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -26,7 +27,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <MainContent>{children}</MainContent>
         </ThemeProvider>
       </body>
     </html>

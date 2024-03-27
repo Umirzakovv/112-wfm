@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const UtilityBar: FC = () => {
-  return <div>UtilityBar</div>;
+  return <div></div>;
 };
 
 export default UtilityBar;

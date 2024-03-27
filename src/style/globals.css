@@ -74,3 +74,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+.sidebar {
+  overflow: hidden;
+  transition: width 0.2s linear;
+}
+
+.open {
+  width: 400px;
+}
+
+.close {
+  width: 0;
+}
+
+.dashboard {
+  border: 1px solid red;
+}

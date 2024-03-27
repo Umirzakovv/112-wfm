@@ -7,12 +7,14 @@ const Navbar: FC = () => {
   const pathname = usePathname();
   return (
     <nav>
-      <ul>
+      <ul className="flex gap-10">
         {navbarLinks?.map((link) => {
           return (
             <Link
               key={link?.id}
-              className={`${pathname === link?.href ? "font-bold" : ""}`}
+              className={`font-semibold text-white text-sm ${
+                pathname === link?.href ? "underline" : ""
+              }`}
               href={link?.href}
             >
               {link?.title}
