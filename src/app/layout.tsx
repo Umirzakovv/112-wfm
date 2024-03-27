@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../style/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/reusable/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={inter.className}>
@@ -24,6 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           {children}
         </ThemeProvider>
       </body>
