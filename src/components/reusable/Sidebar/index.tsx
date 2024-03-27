@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 type SideBarType = {
   className?: string;
@@ -6,7 +6,9 @@ type SideBarType = {
 
 const Sidebar: FC<SideBarType> = ({ className }) => {
   return (
-    <div className={`${className} sidebar border`}>
+    <div
+      className={`${className} transition-all duration-200 ease-linear overflow-hidden border`}
+    >
       Sidebar
     </div>
   );

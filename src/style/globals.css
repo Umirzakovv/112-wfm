@@ -75,11 +75,6 @@
   }
 }
 
-.sidebar {
-  overflow: hidden;
-  transition: width 0.2s linear;
-}
-
 .open {
   width: 400px;
 }
@@ -88,6 +83,3 @@
   width: 0;
 }
 
-.dashboard {
-  border: 1px solid red;
-}
