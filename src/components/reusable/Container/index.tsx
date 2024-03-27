@@ -7,7 +7,7 @@ type ContainerType = {
 
 const Container: FC<ContainerType> = ({ children, className }) => {
   return (
-    <div className={`${className} border max-w-[1800px] block my-0 mx-auto`}>
+    <div className={`${className} max-w-[1800px] block my-0 mx-auto`}>
       {children}
     </div>
   );

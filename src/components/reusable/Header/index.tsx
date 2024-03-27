@@ -10,9 +10,9 @@ type HeaderType = {
 
 const Header: FC<HeaderType> = ({ children }) => {
   return (
-    <div className="bg-main_blue">
+    <div className="bg-main_blue py-3">
       <header>
-        <Container className="border flex items-center justify-between">
+        <Container className="flex items-center justify-between">
           <Navbar />
           <UtilityBar />
         </Container>
