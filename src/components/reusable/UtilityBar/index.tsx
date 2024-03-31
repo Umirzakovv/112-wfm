@@ -20,9 +20,6 @@ const UtilityBar: FC = () => {
             height={24}
           />
         </SelectTrigger>
-
-
-
         <SelectContent className="min-w-[1rem]">
           <SelectGroup>
             <SelectItem value="ru">
@@ -43,9 +40,6 @@ const UtilityBar: FC = () => {
             </SelectItem>
           </SelectGroup>
         </SelectContent>
-
-
-
       </Select>
       <button>
         <Image src={"/moon.svg"} alt="sun img" width={24} height={24} />

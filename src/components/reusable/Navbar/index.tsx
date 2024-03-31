@@ -13,7 +13,7 @@ const Navbar: FC = () => {
             <Link
               key={link?.id}
               className={`font-semibold text-white text-sm ${
-                pathname === link?.href ? "underline" : ""
+                pathname === link?.href ? "text-[#ADC4FF]" : ""
               }`}
               href={link?.href}
             >
