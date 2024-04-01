@@ -5,6 +5,7 @@ import { FC } from "react";
 
 const Navbar: FC = () => {
   const pathname = usePathname();
+  
   return (
     <nav>
       <ul className="flex gap-10">
