@@ -1,22 +1,21 @@
 import PieChart from "@/components/reusable/PieChart";
-import React, { useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import StatisiticsBtns from "../StatisticsBtns";
-import io, { Socket } from "socket.io-client";
+import { IData } from "@/utils/types-interfaces/dashboard";
 
-const socket: Socket = io("http://192.168.42.176:1000/");
+type PieChartSideCardType = {
+  data: [IData];
+  setTypeOperators: Dispatch<SetStateAction<string>>;
+};
 
-const PieChartSideCard = () => {
-  const [data, setData] = useState<[]>([]);
-
-  useEffect(() => {
-    socket.emit("data", (receivedData: []) => {
-      setData(receivedData);
-    });
-  }, []);
+const PieChartSideCard: FC<PieChartSideCardType> = ({
+  data,
+  setTypeOperators,
+}) => {
   return (
     <div className="border bg-white rounded-lg flex justify-between items-center w-max p-5">
       <PieChart data={data} />
-      <StatisiticsBtns data={data} />
+      <StatisiticsBtns data={data} setTypeOperators={setTypeOperators} />
     </div>
   );
 };
