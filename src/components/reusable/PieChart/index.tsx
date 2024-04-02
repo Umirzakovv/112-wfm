@@ -1,35 +1,53 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 // import { Chart as ChartJS } from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
+import { IData } from "@/utils/types-interfaces/dashboard";
 Chart.register(ArcElement);
 
-const PieChart: FC = () => {
+type PieChartType = {
+  data: [IData];
+};
+
+interface IItem {
+  item: IData;
+}
+
+const PieChart: FC<PieChartType> = ({ data }) => {
+  console.log(data[0]);
+
   return (
     <div className="w-[234px]">
       <Doughnut
         data={{
-          labels: ["A", "B", "C"],
+          labels: ["A", "B", "C", "D", "E"],
           datasets: [
             {
               label: "Revenue",
-              data: [200, 300, 500, 250, 300],
+              data: [
+                data[0]?.queue,
+                data[0]?.online,
+                data[0]?.in_job,
+                data[0]?.free,
+                data[0]?.locked,
+              ],
               backgroundColor: [
-                "#dd4545",
-                "#4f45dd",
-                "#000f99",
-                "#32c9a3",
-                "#ffd023",
+                "#ebecf7",
+                "#d6f4ed",
+                "#fff6d3",
+                "#f4d6ee",
+                "#f9c9c9",
               ],
               borderColor: [
-                "#dd4545",
-                "#4f45dd",
-                "#000f99",
-                "#32c9a3",
-                "#ffd023",
+                "#ebecf7",
+                "#d6f4ed",
+                "#fff6d3",
+                "#f4d6ee",
+                "#f9c9c9",
               ],
+              hoverOffset: 4
             },
           ],
         }}

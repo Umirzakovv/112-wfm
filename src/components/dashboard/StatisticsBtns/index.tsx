@@ -1,27 +1,48 @@
+import { FC } from "react";
 import StatisiticsBtn from "../StatisticsBtn";
+import { IData } from "@/utils/types-interfaces/dashboard";
 
-const StatisiticsBtns = () => {
-  const btnData = [
-    { id: 1, title: "В очереди", amount: "2500", color: "#ebecf7" },
-    { id: 2, title: "В сети", amount: "2500", color: "#d6f4ed" },
-    { id: 3, title: "В работе", amount: "2500", color: "#fff6d3" },
-    { id: 4, title: "Свободные", amount: "2500", color: "#f4d6ee" },
-    { id: 5, title: "Заблокированные", amount: "2500", color: "#f9c9c9" },
-  ];
 
+
+type BtnsType = {
+  data: [IData];
+};
+
+const StatisiticsBtns: FC<BtnsType> = ({ data }) => {
   return (
-    <div className="grid gap-3">
-      {btnData?.map((item) => {
+    <>
+      {data?.map((item) => {
         return (
-          <StatisiticsBtn
-            key={item?.id}
-            title={item?.title}
-            amount={item?.amount}
-            color={item?.color}
-          />
+          <div key={item?.goup_id} className="grid gap-3">
+            <StatisiticsBtn
+              title="В очереди"
+              amount={item?.queue}
+              color="#ebecf7"
+            />
+            <StatisiticsBtn
+              title="В сети"
+              amount={item?.online}
+              color="#d6f4ed"
+            />
+            <StatisiticsBtn
+              title="В работе"
+              amount={item?.in_job}
+              color="#fff6d3"
+            />
+            <StatisiticsBtn
+              title="Свободные"
+              amount={item?.free}
+              color="#f4d6ee"
+            />
+            <StatisiticsBtn
+              title="Заблокированные"
+              amount={item?.locked}
+              color="#f9c9c9"
+            />
+          </div>
         );
       })}
-    </div>
+    </>
   );
 };
 
