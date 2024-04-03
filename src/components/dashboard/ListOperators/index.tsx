@@ -11,8 +11,10 @@ type ListOperators = {
 
 const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
   return (
-    <div className="bg-white rounded-lg p-5 w-max">
-      <div className="flex justify-between items-center">
+    <div
+      className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto"
+    >
+      <div className="flex justify-between items-center mb-5">
         <h6 className="text-lg font-bold text-main_blue">
           {switchTitle(typeOperators)}
         </h6>

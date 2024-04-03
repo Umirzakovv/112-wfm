@@ -11,14 +11,19 @@ type PieChartType = {
 };
 
 const PieChart: FC<PieChartType> = ({ data }) => {
-
   const colors = ["#ebecf7", "#d6f4ed", "#fff6d3", "#f4d6ee", "#f9c9c9"];
-
+  // const labels = [
+  //   "В очереди",
+  //   "В сети",
+  //   "В работе",
+  //   "Свободные",
+  //   "Заблокированные",
+  // ];
   return (
     <div className="w-[234px]">
       <Doughnut
         data={{
-          labels: ["A", "B", "C", "D", "E"],
+          // labels,
           datasets: [
             {
               label: "Revenue",

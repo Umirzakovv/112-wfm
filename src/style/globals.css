@@ -75,6 +75,16 @@
   }
 }
 
+/* Target the scrollbar track (limited compatibility) */
+*::-webkit-scrollbar-track {
+  background-color: red;
+}
+
+/* Target the scrollbar thumb (limited compatibility) */
+*::-webkit-scrollbar-thumb {
+  background-color: red;
+}
+
 .open {
   width: 400px;
 }
