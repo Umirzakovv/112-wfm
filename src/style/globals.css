@@ -75,16 +75,6 @@
   }
 }
 
-/* Target the scrollbar track (limited compatibility) */
-*::-webkit-scrollbar-track {
-  background-color: red;
-}
-
-/* Target the scrollbar thumb (limited compatibility) */
-*::-webkit-scrollbar-thumb {
-  background-color: red;
-}
-
 .open {
   width: 400px;
 }
@@ -95,5 +85,23 @@
 
 .borderr {
   border: 1px solid red;
+}
+
+.map-path {
+  fill: #fff;
+  stroke: #eee;
+  stroke-width: .25;
+}
+
+.map-path_active {
+  fill: #4f46e5;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.map-path:hover {
+  fill: #4e46e53b;
+  transition: 0.6s;
+  cursor: pointer;
 }
 

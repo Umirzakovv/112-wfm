@@ -2,6 +2,7 @@
 
 import BarGraph from "@/components/dashboard/BarGraph";
 import ListOperators from "@/components/dashboard/ListOperators";
+import MapUzb from "@/components/dashboard/MapUzb";
 import PieChartSideCard from "@/components/dashboard/PieChartSideCard";
 import StatisticsTab from "@/components/dashboard/StatisticsTab";
 import { FC, useEffect, useState } from "react";
@@ -22,6 +23,7 @@ const Dashboard: FC = () => {
   return (
     <div className=" flex justify-between w-full gap-5">
       <div className="w-1/2 grid gap-5 h-max">
+        <MapUzb />
         <StatisticsTab />
         <BarGraph />
       </div>

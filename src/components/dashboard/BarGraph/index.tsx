@@ -24,7 +24,7 @@ const BarGraph: FC = () => {
   ];
   return (
     <Bar
-      className="bg-white rounded"
+      className="bg-white rounded borderr"
       data={{
         labels,
         datasets: [
