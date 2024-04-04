@@ -13,7 +13,7 @@ const PieChartSideCard: FC<PieChartSideCardType> = ({
   setTypeOperators,
 }) => {
   return (
-    <div className="bg-white rounded-lg flex justify-between items-center py-5 px-20 w-full">
+    <div className="bg-white rounded-lg flex justify-between items-center py-7 px-20 w-full dark:bg-main_grey">
       <PieChart data={data} />
       <StatisiticsBtns data={data} setTypeOperators={setTypeOperators} />
     </div>

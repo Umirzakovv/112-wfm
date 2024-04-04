@@ -28,7 +28,7 @@ const Dashboard: FC = () => {
         <StatisticsTab />
         <BarGraph />
       </div>
-      <div className="w-1/2 grid gap-5">
+      <div className="w-1/2 h-max grid gap-5">
         <PieChartSideCard data={data} setTypeOperators={setTypeOperators} />
         <ListOperators data={data} typeOperators={typeOperators} />
       </div>

@@ -21,6 +21,8 @@ const config = {
       colors: {
         main_blue: "#4F46E5",
         bg_color: "#eaeff3",
+        main_dark: "#272728",
+        main_grey: "#3a3a3a",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

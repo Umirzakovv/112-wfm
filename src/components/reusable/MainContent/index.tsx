@@ -16,9 +16,9 @@ const MainContent: FC<MainContentType> = ({ children }) => {
   };
 
   return (
-    <Container className="border flex justify-between">
+    <Container className="border flex justify-between mt-5">
       <div className="w-full">
-        <button onClick={handleBtnClick}>click me to open sidebar</button>
+        {/* <button onClick={handleBtnClick}>click me to open sidebar</button> */}
         {children}
       </div>
       <Sidebar className={isSidebarOpen ? "open" : "close"} />

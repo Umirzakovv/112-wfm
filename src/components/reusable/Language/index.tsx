@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -9,10 +9,21 @@ import {
 import Image from "next/image";
 
 const LanguageSelect: FC = () => {
+  const [acitveLang, setActiveLang] = useState("ru");
+
+  const handleLangChange = (e: string) => {
+    setActiveLang(e === "ru" ? "ru" : "uz");
+  };
+
   return (
-    <Select>
-      <SelectTrigger className="w-max px-0 py-0 bg-main_blue border-0 text-white">
-        <Image src={"/russian-flag.svg"} alt="sun img" width={24} height={24} />
+    <Select value={acitveLang} onValueChange={handleLangChange}>
+      <SelectTrigger className="w-max px-0 py-0 bg-main_blue border-0 text-white dark:bg-main_grey">
+        <Image
+          src={acitveLang === "ru" ? "/russian-flag.svg" : "/uzbek-flag.svg"}
+          alt="sun img"
+          width={24}
+          height={24}
+        />
       </SelectTrigger>
       <SelectContent className="min-w-[1rem]">
         <SelectGroup>
@@ -26,7 +37,7 @@ const LanguageSelect: FC = () => {
           </SelectItem>
           <SelectItem value="uz">
             <Image
-              src={"/russian-flag.svg"}
+              src={"/uzbek-flag.svg"}
               alt="sun img"
               width={24}
               height={24}

@@ -30,7 +30,7 @@ const MapUzb: FC<MapUzbType> = ({ activeRegion, setActiveRegion }) => {
             } map-path`}
             onClick={(e) => handleClick(e)}
           >
-            <title className="borderr">{item?.name}</title>
+            <title>{item?.name}</title>
           </path>
         );
       })}

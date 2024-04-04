@@ -12,7 +12,7 @@ type ListOperators = {
 const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
   return (
     <div
-      className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto"
+      className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto dark:bg-main_grey"
     >
       <div className="flex justify-between items-center mb-5">
         <h6 className="text-lg font-bold text-main_blue">

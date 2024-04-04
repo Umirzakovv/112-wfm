@@ -69,11 +69,9 @@ export const regions = [
     pathId: "xorazm",
     name: "Харезм",
   },
-  // {
-  //   id: 15,
-  //   pathId: "aral-sea",
-  //   name: "Аральское море",
-  // },
+  {
+    id: 15,
+    pathId: "aral-sea",
+    name: "Аральское море",
+  },
 ];
-
-
