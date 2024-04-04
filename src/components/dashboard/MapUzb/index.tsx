@@ -16,7 +16,7 @@ const MapUzb: FC<MapUzbType> = ({ activeRegion, setActiveRegion }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 793 517"
       aria-label="Map of Uzbekistan"
-      width="460px"
+      className="w-2/3"
     >
       {mapData?.map((item) => {
         return (

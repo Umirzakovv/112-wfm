@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext } from "react";
 import Sidebar from "../Sidebar";
 import Container from "../Container";
 import { MainContext } from "@/context";

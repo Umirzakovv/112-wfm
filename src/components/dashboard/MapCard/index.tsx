@@ -5,8 +5,6 @@ import FilterByRegion from "../FilterByRegion";
 const MapCard = () => {
   const [activeRegion, setActiveRegion] = useState("");
 
-  
-
   return (
     <div className="bg-white flex justify-between px-20 py-5 rounded-md dark:bg-main_grey">
       <MapUzb activeRegion={activeRegion} setActiveRegion={setActiveRegion} />

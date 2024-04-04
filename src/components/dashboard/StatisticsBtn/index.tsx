@@ -22,7 +22,7 @@ const StatisiticsBtn: FC<BtnType> = ({
     <button
       value={title}
       style={{ background: theme === "light" ? color : darkColor }}
-      className={`w-[50px] flex justify-between p-3 rounded-lg font-bold`}
+      className={`w-[303px] flex justify-between p-3 rounded-lg font-bold`}
       onClick={onClick}
     >
       {title} <span>{amount}</span>
