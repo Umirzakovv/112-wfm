@@ -1,12 +1,14 @@
 import { mapData } from "@/consts/map-uzb-data";
-import React, { FC, MouseEvent, useState } from "react";
+import React, { Dispatch, FC, MouseEvent, SetStateAction } from "react";
 
-const MapUzb: FC = () => {
-  const [activeRegion, setActiveRegion] = useState("");
+type MapUzbType = {
+  activeRegion: string;
+  setActiveRegion: Dispatch<SetStateAction<string>>;
+};
 
+const MapUzb: FC<MapUzbType> = ({ activeRegion, setActiveRegion }) => {
   const handleClick = (e: MouseEvent<SVGPathElement>) => {
     setActiveRegion(e?.currentTarget?.id);
-    console.log(activeRegion);
   };
 
   return (
@@ -23,11 +25,13 @@ const MapUzb: FC = () => {
             id={item?.pathId}
             name={item?.name}
             d={item?.d}
-            className={`map-path ${
+            className={`${
               activeRegion == item?.pathId ? "map-path_active" : ""
-            }`}
+            } map-path`}
             onClick={(e) => handleClick(e)}
-          />
+          >
+            <title className="borderr">{item?.name}</title>
+          </path>
         );
       })}
     </svg>

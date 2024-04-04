@@ -5,7 +5,6 @@ const FilterByDayWeekMonth = () => {
     <Tabs defaultValue="account" className="w-max">
       <p className="text-medium text-sm mb-2">Выберите</p>
       <TabsList>
-        <TabsTrigger value="day">День</TabsTrigger>
         <TabsTrigger value="week">Неделя</TabsTrigger>
         <TabsTrigger value="month">Месяц</TabsTrigger>
         <TabsTrigger value="year">Год</TabsTrigger>

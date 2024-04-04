@@ -2,8 +2,9 @@
 
 import BarGraph from "@/components/dashboard/BarGraph";
 import ListOperators from "@/components/dashboard/ListOperators";
+import MapCard from "@/components/dashboard/MapCard";
 import MapUzb from "@/components/dashboard/MapUzb";
-import PieChartSideCard from "@/components/dashboard/PieChartSideCard";
+import PieChartSideCard from "@/components/dashboard/PieChartCard";
 import StatisticsTab from "@/components/dashboard/StatisticsTab";
 import { FC, useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
@@ -23,7 +24,7 @@ const Dashboard: FC = () => {
   return (
     <div className=" flex justify-between w-full gap-5">
       <div className="w-1/2 grid gap-5 h-max">
-        <MapUzb />
+        <MapCard />
         <StatisticsTab />
         <BarGraph />
       </div>
