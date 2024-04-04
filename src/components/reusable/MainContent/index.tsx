@@ -1,26 +1,20 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import Sidebar from "../Sidebar";
 import Container from "../Container";
+import { MainContext } from "@/context";
 
 type MainContentType = {
   children: React.ReactNode;
 };
 
 const MainContent: FC<MainContentType> = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-
-  const handleBtnClick = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  const { isSidebarOpen } = useContext(MainContext);
 
   return (
-    <Container className="border flex justify-between mt-5">
-      <div className="w-full">
-        {/* <button onClick={handleBtnClick}>click me to open sidebar</button> */}
-        {children}
-      </div>
+    <Container className="flex justify-between mt-5">
+      <div className="w-full">{children}</div>
       <Sidebar className={isSidebarOpen ? "open" : "close"} />
     </Container>
   );

@@ -1,12 +1,15 @@
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useContext } from "react";
 import LanguageSelect from "../Language";
 import { useTheme } from "next-themes";
+import { MainContext } from "@/context";
 
 const UtilityBar: FC = () => {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
-
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(MainContext);
+  const handleBtnClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <div className="flex gap-3">
       <LanguageSelect />
@@ -20,7 +23,7 @@ const UtilityBar: FC = () => {
         />
       </button>
 
-      <button className="relative">
+      <button className="relative" onClick={handleBtnClick}>
         <span className="absolute bottom-6 rounded-full text-xs bg-rose-500 p-0 w-[16px] text-white font-bold">
           2
         </span>

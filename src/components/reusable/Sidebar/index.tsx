@@ -7,7 +7,7 @@ type SideBarType = {
 const Sidebar: FC<SideBarType> = ({ className }) => {
   return (
     <div
-      className={`${className} transition-all duration-200 ease-linear overflow-hidden border`}
+      className={`${className} transition-all duration-200 ease-linear overflow-hidden borderr`}
     >
       Sidebar
     </div>

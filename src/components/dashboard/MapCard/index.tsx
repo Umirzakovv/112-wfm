@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import MapUzb from "../MapUzb";
 import FilterByRegion from "../FilterByRegion";
 
 const MapCard = () => {
   const [activeRegion, setActiveRegion] = useState("");
-  console.log(activeRegion);
+
   
 
   return (
