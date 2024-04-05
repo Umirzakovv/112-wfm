@@ -29,10 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainContextProvider>
-            <Header>
-              <HeaderFilter />
-            </Header>
-            <MainContent>{children}</MainContent>
+            {children}
           </MainContextProvider>
         </ThemeProvider>
       </body>

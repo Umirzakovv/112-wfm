@@ -3,12 +3,11 @@
 import BarGraph from "@/components/dashboard/BarGraph";
 import ListOperators from "@/components/dashboard/ListOperators";
 import MapCard from "@/components/dashboard/MapCard";
-import MapUzb from "@/components/dashboard/MapUzb";
 import PieChartSideCard from "@/components/dashboard/PieChartCard";
 import StatisticsTabs from "@/components/dashboard/StatisticsTabs";
-import StatisticsTab from "@/components/dashboard/StatisticsTabs";
 import { FC, useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
+import DashboardLayout from "./layout";
 const socketUrl = "http://192.168.42.176:1000/";
 
 const socket: Socket = io(socketUrl);
@@ -23,17 +22,19 @@ const Dashboard: FC = () => {
     });
   }, []);
   return (
-    <div className=" flex justify-between gap-5">
-      <div className="w-1/2 grid gap-5 h-max">
-        <MapCard />
-        <StatisticsTabs />
-        <BarGraph />
+    <DashboardLayout>
+      <div className=" flex justify-between gap-5">
+        <div className="w-1/2 grid gap-5 h-max">
+          <MapCard />
+          <StatisticsTabs />
+          <BarGraph />
+        </div>
+        <div className="w-1/2 h-max grid gap-5">
+          <PieChartSideCard data={data} setTypeOperators={setTypeOperators} />
+          <ListOperators data={data} typeOperators={typeOperators} />
+        </div>
       </div>
-      <div className="w-1/2 h-max grid gap-5">
-        <PieChartSideCard data={data} setTypeOperators={setTypeOperators} />
-        <ListOperators data={data} typeOperators={typeOperators} />
-      </div>
-    </div>
+    </DashboardLayout>
   );
 };
 

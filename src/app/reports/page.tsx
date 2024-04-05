@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 const Reports: FC = () => {
-  return <div>Reports</div>;
+  return <div className="borderr">Reports</div>;
 };
 
 export default Reports;
