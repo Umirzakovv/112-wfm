@@ -4,7 +4,7 @@ import "../style/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/reusable/Header";
 import MainContent from "@/components/reusable/MainContent";
-import HeaderFilter from "@/components/reusable/HeaderFilter";
+import HeaderFilter from "@/components/dashboard/HeaderFilter";
 import MainContextProvider from "@/context";
 
 const inter = Inter({ subsets: ["latin"] });

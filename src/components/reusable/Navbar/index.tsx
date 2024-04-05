@@ -15,7 +15,7 @@ const Navbar: FC = () => {
               key={link?.id}
               className={`font-semibold text-white text-sm ${
                 pathname === link?.href
-                  ? "text-[#ADC4FF] dark:text-[#5b84f4b3]"
+                  ? "text-[#86a8fc] dark:text-[#5b84f4b3]"
                   : ""
               } dark:text-[#5B84F4]`}
               href={link?.href}
