@@ -23,6 +23,8 @@ const config = {
         bg_color: "#eaeff3",
         main_dark: "#272728",
         main_grey: "#3a3a3a",
+        text_main: "#1F3462",
+        text_grey: "#8D99AF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
