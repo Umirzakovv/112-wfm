@@ -12,6 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Label } from "@/components/ui/label";
 
 export function DatePicker({
   className,
@@ -23,7 +24,8 @@ export function DatePicker({
 
   return (
     <div className={cn("grid gap-2", className)}>
-      <p className="text-medium text-sm">Выберите дату</p>
+      <Label htmlFor="date">Выберите дату</Label>
+
       <Popover>
         <PopoverTrigger asChild>
           <Button

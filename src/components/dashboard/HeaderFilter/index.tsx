@@ -1,6 +1,6 @@
 import React from "react";
 import { DatePicker } from "../../reusable/DatePicker";
-import FilterByDayWeekMonth from "@/components/dashboard/FilterByDayWeekMonth";
+import FilterByDayWeekMonth from "@/components/reusable/FilterByDayWeekMonth";
 
 const HeaderFilter = () => {
   return (
