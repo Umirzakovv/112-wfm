@@ -24,7 +24,7 @@ export function DatePicker({
 
   return (
     <div className={cn("grid gap-2", className)}>
-      <Label htmlFor="date">Выберите дату</Label>
+      <Label htmlFor="date">Сортировка по дате</Label>
 
       <Popover>
         <PopoverTrigger asChild>

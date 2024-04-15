@@ -6,7 +6,7 @@ const SearchInput:FC = () => {
   return (
     <div className="grid max-w-sm items-center gap-1.5">
       <Label htmlFor="text">
-        Email
+        Поиск
       </Label>
       <Input type="text" id="text" placeholder="Поиск по ФИО или ID РМО" />
     </div>

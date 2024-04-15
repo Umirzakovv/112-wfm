@@ -104,3 +104,12 @@
   transition: 0.3s;
   cursor: pointer;
 }
+
+/* If using a postcss setup with Tailwind, you can put this in your global CSS file */
+.card {
+  /* Styles for individual cards */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;  /* Example height */
+}

@@ -13,7 +13,7 @@ const SelectByStatus: FC = () => {
   return (
     <div>
       <Label>
-        Выберите статус
+      Сортировка по статусу
       </Label>
       <Select>
         <SelectTrigger className="w-[236px]">

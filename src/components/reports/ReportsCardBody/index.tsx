@@ -3,7 +3,7 @@ import ReportsCardBodySingleInfo from "../ReportsCardBodySingleInfo";
 
 const ReportsCardBody: FC = () => {
   return (
-    <div className="bg-white rounded-b-md">
+    <div className="bg-white rounded-md">
       <ReportsCardBodySingleInfo
         imgSrc="/barchart.svg"
         title="Время прихода/ухода"
