@@ -13,23 +13,32 @@ import { ReportsContext } from "@/context/ReportsContext";
 import { FC, useContext } from "react";
 
 const SelectByStatus: FC = () => {
-  const { selectValue, setSelectValue } = useContext(ReportsContext);
+  const { reportStatus, setReportStatus } = useContext(ReportsContext);
 
-  console.log(selectValue);
+  const onValueChange = (event: string) => {
+    setReportStatus(event);
+  };
+
   return (
     <div>
       <Label>Сортировка по статусу</Label>
-      <Select>
+      <Select
+        value={reportStatus}
+        onValueChange={(event) => onValueChange(event)}
+      >
         <SelectTrigger className="w-[236px]">
           <SelectValue placeholder="Выберите статус" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectItem value="apple">Превышение перерыва</SelectItem>
-            <SelectItem value="banana">С перерыва в перерыв</SelectItem>
-            <SelectItem value="blueberry">Опаздание</SelectItem>
-            <SelectItem value="grapes">Ранний уход</SelectItem>
-            <SelectItem value="pineapple">Поработал меньше 9 часов</SelectItem>
+            <SelectItem value="all">Все нарушений</SelectItem>
+            <SelectItem value="exceeding-break">Превышение перерыва</SelectItem>
+            <SelectItem value="block-to-block">С перерыва в перерыв</SelectItem>
+            <SelectItem value="latecomers">Опаздание</SelectItem>
+            <SelectItem value="left-early">Ранний уход</SelectItem>
+            <SelectItem value="work-less-nine-hours">
+              Поработал меньше 9 часов
+            </SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>

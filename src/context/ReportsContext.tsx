@@ -3,8 +3,8 @@
 import React, { FC, createContext, useState } from "react";
 
 interface IReportsContext {
-  selectValue: string;
-  setSelectValue: (value: string) => void;
+  reportStatus: string;
+  setReportStatus: (value: string) => void;
 }
 
 type ReportsContextType = {
@@ -12,17 +12,18 @@ type ReportsContextType = {
 };
 
 const defaultContextValue: IReportsContext = {
-  selectValue: "",
-  setSelectValue: () => {}, // no-op function
+  reportStatus: "",
+  setReportStatus: () => {}, // no-op function
 };
 
 export const ReportsContext =
   createContext<IReportsContext>(defaultContextValue);
 
 const ReportsContextProvider: FC<ReportsContextType> = ({ children }) => {
-  const [selectValue, setSelectValue] = useState<string>("");
+  const [reportStatus, setReportStatus] = useState<string>("all");
+
   return (
-    <ReportsContext.Provider value={{ selectValue, setSelectValue }}>
+    <ReportsContext.Provider value={{ reportStatus, setReportStatus }}>
       {children}
     </ReportsContext.Provider>
   );
