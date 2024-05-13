@@ -43,25 +43,6 @@ const data = [
 ];
 
 const ReportsCards: FC = () => {
-  // const [columns, setColumns] = useState<number>(2);
-  // console.log(columns);
-
-  // useEffect(() => {
-  //   const handleKeyDown = (event: KeyboardEvent) => {
-  //     if (event.key === "+") {
-  //       setColumns((columns) => (columns += 1));
-  //     } else if (event.key === "-") {
-  //       setColumns((columns) => (columns -= 1));
-  //     }
-  //   };
-
-  //   window.addEventListener("keydown", handleKeyDown);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, []);
-
   return (
     <div>
       <div className={`grid grid-cols-2 gap-10`}>

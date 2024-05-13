@@ -9,4 +9,9 @@ export const navbarLinks = [
     title: "Отчёт по перерывам",
     href: "/reports",
   },
+  {
+    id: 3,
+    title: "График работы сотрудников",
+    href: "/schedule",
+  },
 ];

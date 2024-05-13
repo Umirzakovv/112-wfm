@@ -24,7 +24,9 @@ const ReportsCardBodySingleInfo: FC<SingleInfoType> = ({
       }] dark:bg-${bgColor ? "main_dark" : "main_grey"}`}
     >
       <div className="flex">
-        <Image src={imgSrc} alt="warning" width={20} height={20} />
+        <Image src={imgSrc} alt="warning icon" width={20
+
+        } height={20}/>
         <p className="ml-2">{title}</p>
       </div>
       <p>{amount}</p>

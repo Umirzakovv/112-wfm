@@ -12,9 +12,7 @@ import { FC } from "react";
 const SelectByStatus: FC = () => {
   return (
     <div>
-      <Label>
-      Сортировка по статусу
-      </Label>
+      <Label>Сортировка по статусу</Label>
       <Select>
         <SelectTrigger className="w-[236px]">
           <SelectValue placeholder="Выберите статус" />
