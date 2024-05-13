@@ -1,3 +1,5 @@
+"use client";
+
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -7,9 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FC } from "react";
+import { ReportsContext } from "@/context/ReportsContext";
+import { FC, useContext } from "react";
 
 const SelectByStatus: FC = () => {
+  const { selectValue, setSelectValue } = useContext(ReportsContext);
+
+  console.log(selectValue);
   return (
     <div>
       <Label>Сортировка по статусу</Label>
