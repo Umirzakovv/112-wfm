@@ -1,39 +1,40 @@
 import React, { FC } from "react";
 import ReportsCardBodySingleInfo from "../ReportsCardBodySingleInfo";
+import { CardType } from "../ReportsCards";
 
-const ReportsCardBody: FC = () => {
+const ReportsCardBody: FC<CardType> = ({ item }) => {
   return (
     <div className="bg-white rounded-md">
       <ReportsCardBodySingleInfo
         imgSrc="/barchart.svg"
-        title="Время прихода/ухода"
-        amount="09:05 - 17:54"
+        title="Недоработка"
+        amount={"Скоро"}
         color="#4F46E5"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/creative-man.svg"
         title="Количество опоздавших дней"
-        amount="12"
+        amount={item?.CountAgentсomeToWorkLate}
         color="#EA4343"
         bgColor="#f4f6f9"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/computer.svg"
         title="Количество ранний уход"
-        amount="54"
+        amount={item?.CountAgentLeftAfterWork}
         color="#E83FE1"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/sofa.svg"
         title="Количество нарушений перерывов"
-        amount="74"
+        amount={item?.CountAgentBanTime}
         color="#1F3462"
         bgColor="#f4f6f9"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/runner.svg"
         title="Количество переходов блока на блок"
-        amount="26"
+        amount={item?.CountAgentBlock}
         color="#23DBC5"
       />
     </div>

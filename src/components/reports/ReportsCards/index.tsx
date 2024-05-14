@@ -1,53 +1,34 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useContext } from "react";
 import ReportsCard from "../ReportsCard";
+import { ReportsContext } from "@/context/ReportsContext";
 
-const data = [
-  {
-    id: 1,
-    title: "lorem",
-  },
-  {
-    id: 2,
-    title: "lorem",
-  },
-  {
-    id: 3,
-    title: "lorem",
-  },
-  {
-    id: 4,
-    title: "lorem",
-  },
-  {
-    id: 5,
-    title: "lorem",
-  },
-  {
-    id: 6,
-    title: "lorem",
-  },
-  {
-    id: 7,
-    title: "lorem",
-  },
-  {
-    id: 8,
-    title: "lorem",
-  },
-  {
-    id: 9,
-    title: "lorem",
-  },
-];
+export interface IItem {
+  agent_id: string;
+  name: string;
+  work_time: string;
+  id: string;
+  CountAgentсomeToWorkLate: number; 
+  CountAgentLeftAfterWork: number;
+  CountAgentBanTime: number;
+  CountAgentBlock: number;
+}
+
+export type CardType = {
+  item: IItem;
+};
 
 const ReportsCards: FC = () => {
+  const { reportsData } = useContext(ReportsContext);
+
   return (
     <div>
-      <div className={`grid grid-cols-2 gap-10`}>
-        {data?.map((item) => {
-          return <ReportsCard key={item?.id} item={item} />;
+      <div className={`grid grid-cols-4 gap-10`}>
+        {reportsData?.map((item: IItem) => {
+          console.log(item);
+
+          return <ReportsCard key={item?.agent_id} item={item} />;
         })}
       </div>
     </div>

@@ -13,6 +13,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
+import { ReportsContext } from "@/context/ReportsContext";
+import { CalendarIcon } from "lucide-react";
 
 export function DatePicker({
   className,
@@ -21,6 +23,14 @@ export function DatePicker({
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   });
+
+  const { fromDate, setFromDate } = React.useContext(ReportsContext);
+  const { toDate, setToDate } = React.useContext(ReportsContext);
+
+  React.useEffect(() => {
+    setFromDate(String(date?.from));
+    setToDate(String(date?.to));
+  }, [date]);
 
   return (
     <div className={cn("grid gap-2", className)}>
@@ -36,7 +46,7 @@ export function DatePicker({
               !date && "text-muted-foreground"
             )}
           >
-            {/* <CalendarIcon className="mr-2 h-4 w-4" /> */}
+            <CalendarIcon className="mr-2 h-4 w-4" />
             {date?.from ? (
               date.to ? (
                 <>
@@ -47,7 +57,7 @@ export function DatePicker({
                 format(date.from, "LLL dd, y")
               )
             ) : (
-              <span>Pick a date</span>
+              <span>Выберите промежуток</span>
             )}
           </Button>
         </PopoverTrigger>

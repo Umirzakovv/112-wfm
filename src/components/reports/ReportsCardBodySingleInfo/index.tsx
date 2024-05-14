@@ -4,7 +4,7 @@ import React, { FC } from "react";
 type SingleInfoType = {
   imgSrc: string;
   title: string;
-  amount: string;
+  amount: number | string;
   color: string;
   bgColor?: string;
 };
