@@ -19,9 +19,7 @@ const ReportsCardBodySingleInfo: FC<SingleInfoType> = ({
   return (
     <div
       style={{ color }}
-      className={`flex justify-between items-center p-4 bg-[${
-        bgColor ? bgColor : ""
-      }] dark:bg-${bgColor ? "main_dark" : "main_grey"}`}
+      className={`flex justify-between items-center p-4`}
     >
       <div className="flex">
         <Image

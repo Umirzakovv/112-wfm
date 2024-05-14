@@ -4,7 +4,7 @@ import { CardType } from "../ReportsCards";
 
 const ReportsCardBody: FC<CardType> = ({ item }) => {
   return (
-    <div className="bg-white rounded-md">
+    <div className="bg-white rounded-md dark:bg-main_grey">
       <ReportsCardBodySingleInfo
         imgSrc="/barchart.svg"
         title="Недоработка"
@@ -28,7 +28,7 @@ const ReportsCardBody: FC<CardType> = ({ item }) => {
         imgSrc="/sofa.svg"
         title="Количество нарушений перерывов"
         amount={item?.CountAgentBanTime}
-        color="#1F3462"
+        color="#8D99AF"
         bgColor="#f4f6f9"
       />
       <ReportsCardBodySingleInfo

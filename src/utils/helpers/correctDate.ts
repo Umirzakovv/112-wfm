@@ -34,6 +34,5 @@ export function correctDate(date: string) {
   const day = date.slice(8, 10);
   const month = switchMonth(date.slice(4, 7));
   const year = date.slice(11, 15);
-  const correctedYear = Number(year) + 2;
-  return `${day}.${month}.${correctedYear}`;
+  return `${day}.${month}.${year}`;
 }

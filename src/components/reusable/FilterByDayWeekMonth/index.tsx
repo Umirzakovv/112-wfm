@@ -6,7 +6,7 @@ const FilterByDayWeekMonth: FC = () => {
   return (
     <div>
       <Label>Выберите</Label>
-      <Tabs defaultValue="week">
+      <Tabs>
         <TabsList>
           <TabsTrigger value="week">Неделя</TabsTrigger>
           <TabsTrigger value="month">Месяц</TabsTrigger>

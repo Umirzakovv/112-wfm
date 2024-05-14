@@ -3,7 +3,7 @@ import { CardType } from "../ReportsCards";
 
 const ReportsCardHeader: FC<CardType> = ({ item }) => {
   return (
-    <div className="flex justify-between items-center p-2 bg-[#e1e6ef] rounded-t-md dark:bg-main_grey">
+    <div className="flex justify-between items-center p-2 rounded-t-md ">
       <div>
         <h6 className="text-lg text-main_text">{item?.name}</h6>
         <p className="text-sm text-text_grey">ID РМО: {item?.id}</p>
