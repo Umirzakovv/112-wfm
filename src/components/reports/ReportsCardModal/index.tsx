@@ -18,7 +18,7 @@ type ModalType = {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   modalData: {};
   setModalData: Dispatch<SetStateAction<string>>;
-  singleCardInfo: {};
+  singleCardInfo: [];
   id: string;
 };
 

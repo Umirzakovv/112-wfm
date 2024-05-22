@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-import { RiTimerFlashLine } from "react-icons/ri";
-import { CiClock1, CiLock, CiTimer } from "react-icons/ci";
+import { CiClock1, CiLock } from "react-icons/ci";
 import { PiPersonSimpleRunLight } from "react-icons/pi";
 import { IoExitOutline } from "react-icons/io5";
 import { MdOutlineWorkHistory } from "react-icons/md";
