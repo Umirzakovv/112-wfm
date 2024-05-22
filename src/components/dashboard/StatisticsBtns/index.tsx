@@ -3,7 +3,7 @@ import StatisiticsBtn from "../StatisticsBtn";
 import { IData } from "@/utils/types-interfaces/dashboard";
 
 type BtnsType = {
-  data: [IData];
+  data: IData[];
   setTypeOperators: Dispatch<SetStateAction<string>>;
 };
 

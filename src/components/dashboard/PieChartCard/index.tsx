@@ -4,7 +4,7 @@ import StatisiticsBtns from "../StatisticsBtns";
 import { IData } from "@/utils/types-interfaces/dashboard";
 
 type PieChartSideCardType = {
-  data: [IData];
+  data: IData[];
   setTypeOperators: Dispatch<SetStateAction<string>>;
 };
 

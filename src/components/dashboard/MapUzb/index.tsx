@@ -27,9 +27,6 @@ const MapUzb: FC<MapUzbType> = ({ activeRegion, setActiveRegion }) => {
             id={item?.pathId}
             name={item?.name}
             d={item?.d}
-            // className={`${
-            //   activeRegion == item?.pathId ? "map-path_active" : ""
-            // } map-path`}
             className={`${
               activeRegion == item?.pathId ? "map-path_active" : ""
             } map-path`}

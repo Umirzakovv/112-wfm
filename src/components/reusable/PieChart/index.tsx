@@ -7,7 +7,7 @@ import { IData } from "@/utils/types-interfaces/dashboard";
 Chart.register(ArcElement);
 
 type PieChartType = {
-  data: [IData];
+  data: IData[];
 };
 
 const PieChart: FC<PieChartType> = ({ data }) => {

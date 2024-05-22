@@ -5,7 +5,7 @@ import SingleListOperators from "../SingleListOperators";
 import { switchTitle } from "@/utils/helpers/switchTitle";
 
 type ListOperators = {
-  data: [IData];
+  data: IData[];
   typeOperators: string;
 };
 
