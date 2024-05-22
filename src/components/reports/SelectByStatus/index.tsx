@@ -13,11 +13,6 @@ import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
 import { FC, useContext } from "react";
 
-interface Data {
-  id: number;
-  name: string;
-}
-
 const SelectByStatus: FC = () => {
   const { reportStatus, setReportStatus } = useContext(ReportsContext);
   const { setReportsData } = useContext(ReportsContext);
@@ -33,15 +28,15 @@ const SelectByStatus: FC = () => {
       try {
         const response = await fetch(
           event === "exceeding-break"
-            ? `http://192.168.42.176:1000/api/v1/agents/findallBanTimeData?fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            ? `http://192.168.42.176:1000/api/v1/agents/findallBanTimeData?idRMO=null&fullname=null&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : event === "block-to-block"
-            ? `http://192.168.42.176:1000/api/v1/agents/findallBanBlockData?fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            ? `http://192.168.42.176:1000/api/v1/agents/findallBanBlockData?idRMO=null&fullname=null&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : event === "latecomers"
-            ? `http://192.168.42.176:1000/api/v1/agents/findComeToWorkOnTimeData?fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            ? `http://192.168.42.176:1000/api/v1/agents/findComeToWorkOnTimeData?idRMO=null&fullname=null&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : event === "left-early"
-            ? `http://192.168.42.176:1000/api/v1/agents/findLeftAfterWorkData?fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            ? `http://192.168.42.176:1000/api/v1/agents/findLeftAfterWorkData?idRMO=null&fullname=null&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : event === "work-less-nine-hours"
-            ? `http://192.168.42.176:1000/api/v1/agents/findallworkedLess?fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            ? `http://192.168.42.176:1000/api/v1/agents/findallworkedLess?idRMO=null&fullname=null&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : ""
         );
         if (!response.ok) {

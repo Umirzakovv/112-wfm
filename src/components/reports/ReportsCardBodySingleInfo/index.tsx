@@ -6,7 +6,6 @@ type SingleInfoType = {
   title: string;
   amount: number | string;
   color: string;
-  bgColor?: string;
 };
 
 const ReportsCardBodySingleInfo: FC<SingleInfoType> = ({
@@ -14,13 +13,9 @@ const ReportsCardBodySingleInfo: FC<SingleInfoType> = ({
   title,
   amount,
   color,
-  bgColor,
 }) => {
   return (
-    <div
-      style={{ color }}
-      className={`flex justify-between items-center p-4`}
-    >
+    <div style={{ color }} className={`flex justify-between items-center p-4`}>
       <div className="flex">
         <Image
           src={imgSrc}

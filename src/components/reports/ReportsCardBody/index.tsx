@@ -3,37 +3,36 @@ import ReportsCardBodySingleInfo from "../ReportsCardBodySingleInfo";
 import { CardType } from "../ReportsCards";
 
 const ReportsCardBody: FC<CardType> = ({ item }) => {
+
   return (
     <div className="bg-white rounded-md dark:bg-main_grey">
       <ReportsCardBodySingleInfo
         imgSrc="/barchart.svg"
-        title="Недоработка"
-        amount={"Скоро"}
+        title="Кол-во недоработанных дней"
+        amount={item?.CountAgentWorkedLess}
         color="#4F46E5"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/creative-man.svg"
-        title="Количество опоздавших дней"
+        title="Кол-во опоздавших дней"
         amount={item?.CountAgentсomeToWorkLate}
         color="#EA4343"
-        bgColor="#f4f6f9"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/computer.svg"
-        title="Количество ранний уход"
+        title="Кол-во ранний уход"
         amount={item?.CountAgentLeftAfterWork}
         color="#E83FE1"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/sofa.svg"
-        title="Количество нарушений перерывов"
+        title="Кол-во нарушений перерывов"
         amount={item?.CountAgentBanTime}
         color="#8D99AF"
-        bgColor="#f4f6f9"
       />
       <ReportsCardBodySingleInfo
         imgSrc="/runner.svg"
-        title="Количество переходов блока на блок"
+        title="Кол-во переходов блока на блок"
         amount={item?.CountAgentBlock}
         color="#23DBC5"
       />
