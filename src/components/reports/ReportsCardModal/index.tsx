@@ -14,11 +14,27 @@ import ReportsCardModalSubHeader from "../ReportsCardModalSubHeader";
 import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
 
+interface ISingleCard {
+  CountAgentBanTime: number;
+  CountAgentBlock: number;
+  CountAgentLeftAfterWork: number;
+  CountAgentWorkedLess: number;
+  CountAgentсomeToWorkLate: number;
+  agent_id: string;
+  allworkTime: number;
+  create_data: string;
+  id: string;
+  id_login: string;
+  name: string;
+  service_name: string;
+  work_time: string;
+}
+
 type ModalType = {
-  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  singleCardInfo: ISingleCard[];
   modalData: {};
-  setModalData: Dispatch<SetStateAction<string>>;
-  singleCardInfo: [];
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setModalData: Dispatch<SetStateAction<never[]>>;
   id: string;
 };
 
@@ -33,6 +49,8 @@ const ReportsCardModal: FC<ModalType> = ({
   const [dataType, setDataType] = useState("first");
   const { fromDate } = useContext(ReportsContext);
   const { toDate } = useContext(ReportsContext);
+  
+  console.log(singleCardInfo);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -64,7 +82,6 @@ const ReportsCardModal: FC<ModalType> = ({
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-
 
         setModalData(result);
       } catch (error) {

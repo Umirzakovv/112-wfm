@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import MapUzb from "../MapUzb";
 import FilterByRegion from "../FilterByRegion";
 
 const MapCard = () => {
-  const [activeRegion, setActiveRegion] = useState("");
+  const [activeRegion, setActiveRegion] = useState("tashkent");
 
   return (
     <div className="bg-white flex justify-between px-20 py-5 rounded-md dark:bg-main_grey">

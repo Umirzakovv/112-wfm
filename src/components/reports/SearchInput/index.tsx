@@ -13,7 +13,6 @@ const SearchInput: FC = () => {
 
   const { setReportsData } = useContext(ReportsContext);
   const [inputValue, setInputValue] = useState<string>("");
-  console.log(reportStatus);
 
   const swtichReportStatus = function () {
     switch (reportStatus) {
@@ -38,7 +37,7 @@ const SearchInput: FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://192.168.42.176:1000/api/v1/agents/${swtichReportStatus()}?idRMO=${
+          `http://192.168.42.176:1000/api/v1/agents/${swtichReportStatus()}?login=${
             inputValue && !isNaN(Number(inputValue)) ? inputValue : null
           }&fullname=${
             inputValue && isNaN(Number(inputValue)) ? inputValue.trim() : null
@@ -49,8 +48,6 @@ const SearchInput: FC = () => {
         }
         const result = await response.json();
         setReportsData(result);
-        console.log(result);
-        
       } catch (error) {
         console.log(error);
       }

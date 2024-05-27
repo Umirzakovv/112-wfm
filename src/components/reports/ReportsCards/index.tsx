@@ -29,7 +29,7 @@ const ReportsCards: FC = () => {
   const { reportsData } = useContext(ReportsContext);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [modalData, setModalData] = useState([]);
-  const [singleCardInfo, setSingleCardInfo] = useState({});
+  const [singleCardInfo, setSingleCardInfo] = useState([]);
   const [id, setId] = useState<string>("");
 
   const handleCardClick = (id: string) => {

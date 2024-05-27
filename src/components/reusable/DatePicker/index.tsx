@@ -13,19 +13,23 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
-import { ReportsContext } from "@/context/ReportsContext";
 import { CalendarIcon } from "lucide-react";
+
+type DatePickerType = {
+  className?: React.HTMLAttributes<HTMLDivElement>;
+  setFromDate: (value: string) => void;
+  setToDate: (value: string) => void;
+};
 
 export function DatePicker({
   className,
-}: React.HTMLAttributes<HTMLDivElement>) {
+  setFromDate,
+  setToDate,
+}: DatePickerType) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(),
-    to: addDays(new Date(), 20),
+    to: addDays(new Date(), 30),
   });
-
-  const { fromDate, setFromDate } = React.useContext(ReportsContext);
-  const { toDate, setToDate } = React.useContext(ReportsContext);
 
   React.useEffect(() => {
     setFromDate(String(date?.from));
@@ -35,7 +39,6 @@ export function DatePicker({
   return (
     <div className={cn("grid gap-2", className)}>
       <Label htmlFor="date">Сортировка по дате</Label>
-
       <Popover>
         <PopoverTrigger asChild>
           <Button

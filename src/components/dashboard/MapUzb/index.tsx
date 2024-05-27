@@ -8,8 +8,6 @@ type MapUzbType = {
 
 const MapUzb: FC<MapUzbType> = ({ activeRegion, setActiveRegion }) => {
   const handleClick = (e: MouseEvent<SVGPathElement>) => {
-    console.log(e?.currentTarget?.id);
-
     setActiveRegion(e?.currentTarget?.id);
   };
 

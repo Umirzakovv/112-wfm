@@ -21,8 +21,6 @@ type HeaderType = {
 };
 
 const ReportsCardModalHeader: FC<HeaderType> = ({ singleCardInfo }) => {
-  console.log(singleCardInfo);
-
   return (
     <div className="flex justify-between items-center">
       <div>
