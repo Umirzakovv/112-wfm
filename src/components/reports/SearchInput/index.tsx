@@ -53,6 +53,7 @@ const SearchInput: FC = () => {
       }
     };
     fetchData();
+    setInputValue("");
   };
   return (
     <form

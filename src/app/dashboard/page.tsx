@@ -14,9 +14,6 @@ const socketUrl = "http://192.168.42.176:1000/";
 const socket: Socket = io(socketUrl);
 
 const Dashboard: FC = () => {
-  // const { fromDate, setFromDate } = useContext(ReportsContext);
-  // const { toDate, setToDate } = useContext(ReportsContext);
-
   const [data, setData] = useState<[]>([]);
   const [typeOperators, setTypeOperators] = useState<string>("default");
 

@@ -10,47 +10,55 @@ import React, {
 import ReportsCardModalStats from "../ReportsCardModalStats";
 import ReportsCardModalTable from "../ReportsCardModalTable";
 import ReportsCardModalHeader from "../ReportsCardModalHeader";
-import ReportsCardModalSubHeader from "../ReportsCardModalSubHeader";
 import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
+import { switchStatuses } from "@/utils/helpers/switchStatuses";
+import { IItem } from "../ReportsCards";
 
-interface ISingleCard {
-  CountAgentBanTime: number;
-  CountAgentBlock: number;
-  CountAgentLeftAfterWork: number;
-  CountAgentWorkedLess: number;
-  CountAgentсomeToWorkLate: number;
+export interface ISingleModalData {
+  ComeToWorkOnTime: boolean;
+  FullDurationOfWork: string;
+  LastLoginTime: string;
+  LeftAfterWork: boolean;
+  PauseDuration: string;
+  TimeEndWork: string;
+  TimeWorkDuration: string;
+  TimeWorkIsDone: boolean;
+  TimeWorked: string;
+  WorkState: null;
   agent_id: string;
-  allworkTime: number;
   create_data: string;
   id: string;
   id_login: string;
+  id_login_type_number: number;
   name: string;
-  service_name: string;
-  work_time: string;
+  timeWork: string;
+  typeWork: string;
+  update_data: string;
+  banInfo: string;
+  agentStateDuration:string
+  lastAgentStateDuration:string
 }
 
 type ModalType = {
-  singleCardInfo: ISingleCard[];
-  modalData: {};
+  singleCardInfo: IItem[];
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-  setModalData: Dispatch<SetStateAction<never[]>>;
   id: string;
 };
 
 const ReportsCardModal: FC<ModalType> = ({
   setIsModalOpen,
-  modalData,
-  setModalData,
   singleCardInfo,
   id,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [dataType, setDataType] = useState("first");
   const { fromDate } = useContext(ReportsContext);
   const { toDate } = useContext(ReportsContext);
-  
-  console.log(singleCardInfo);
+  const [cardModalDataType, seTCardModalDataType] = useState("");
+  const [modalData, setModalData] = useState<ISingleModalData[]>([]);
+
+  const correctedFromDate = correctDate(fromDate);
+  const correctedToDate = correctDate(toDate);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -69,38 +77,71 @@ const ReportsCardModal: FC<ModalType> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          dataType === "second"
-            ? `http://192.168.42.176:1000/api/v1/agents/findControlTgraphData?agent_id=${id}&pageNumber=1&pageSize=10&fromDate=${correctDate(
-                fromDate
-              )}&untilDate=${correctDate(toDate)}`
-            : `http://192.168.42.176:1000/api/v1/agents/findLockData?agent_id=${id}&pageNumber=1&pageSize=10&fromDate=${correctDate(
-                fromDate
-              )}&untilDate=${correctDate(toDate)}`
+        const response1 = await fetch(
+          `http://192.168.42.176:1000/api/v1/agents/findLockData?agent_id=${id}&type_block=all&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
         );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response1.ok) {
+          throw new Error(`HTTP error! status: ${response1.status}`);
         }
-        const result = await response.json();
+        const result1 = await response1.json();
 
-        setModalData(result);
+        const response2 = await fetch(
+          `http://192.168.42.176:1000/api/v1/agents/findControlTgraphData?agent_id=${id}&type_ban=all&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+        );
+        if (!response2.ok) {
+          throw new Error(`HTTP error! status: ${response2.status}`);
+        }
+        const result2 = await response2.json();
+        setModalData([...result1?.data?.results, ...result2?.data?.results]);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
-  }, [dataType]);
+    const fetchSecondData = async () => {
+      try {
+        const response = await fetch(
+          cardModalDataType === "exceeding-time" ||
+            cardModalDataType === "block-to-block"
+            ? `http://192.168.42.176:1000/api/v1/agents/findLockData?agent_id=${id}&type_block=${
+                cardModalDataType === "exceeding-time" ? "time" : "block"
+              }&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            : `http://192.168.42.176:1000/api/v1/agents/findControlTgraphData?agent_id=${id}&type_ban=${switchStatuses(
+                cardModalDataType
+              )}&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        setModalData(result?.data?.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (cardModalDataType === "all") {
+      fetchData();
+    } else {
+      fetchSecondData();
+    }
+  }, [cardModalDataType]);
 
   return (
     <div
       ref={modalRef}
-      className="bg-white w-[1600px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-5 rounded-lg shadow-lg border dark:bg-main_dark grid gap-5"
+      className="bg-white w-[1600px] max-h-[800px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-5 rounded-lg shadow-lg border overflow-y-scroll	 dark:bg-main_dark grid gap-5"
     >
       <ReportsCardModalHeader singleCardInfo={singleCardInfo} />
-      <ReportsCardModalStats singleCardInfo={singleCardInfo} />
-      <ReportsCardModalSubHeader setDataType={setDataType} />
-      <ReportsCardModalTable dataType={dataType} modalData={modalData} />
+      <ReportsCardModalStats
+        singleCardInfo={singleCardInfo}
+        seTCardModalDataType={seTCardModalDataType}
+      />
+      <ReportsCardModalTable
+        modalData={modalData}
+        // setModalData={setModalData}
+        cardModalDataType={cardModalDataType}
+      />
     </div>
   );
 };

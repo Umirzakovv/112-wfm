@@ -20,12 +20,12 @@ type HeaderType = {
   singleCardInfo: ISingleCard[];
 };
 
-const ReportsCardModalHeader: FC<HeaderType> = ({ singleCardInfo }) => {
+const ReportsCardModalHeader: FC<HeaderType> = ({ singleCardInfo }) => {  
   return (
     <div className="flex justify-between items-center">
       <div>
         <h2 className="text-lg text-main_text">{singleCardInfo[0]?.name}</h2>
-        <p className="text-sm text-text_grey">ID РМ: {singleCardInfo[0]?.id}</p>
+        <p className="text-sm text-text_grey">ID РМ: {singleCardInfo[0]?.id_login}</p>
       </div>
       <div>
         <p className="text-xs text-text_grey">Время работы</p>
