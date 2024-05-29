@@ -1,7 +1,13 @@
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
+import { SidebarDataType } from "../Sidebar";
+import { convertSeconds } from "@/utils/helpers/convertSeconds";
 
-const SidebarCard = () => {
+type SidebarCardType = {
+  item: SidebarDataType;
+};
+
+const SidebarCard: FC<SidebarCardType> = ({ item }) => {
   return (
     <div className="shadow-lg rounded-md m-2">
       <div className="p-1 rounded-md flex justify-between items-center bg-[#ffdefc]">
@@ -9,8 +15,10 @@ const SidebarCard = () => {
           <Image src="/card-user.svg" alt="card user" width={19} height={19} />
         </div>
         <div>
-          <h2 className="text-base font-bold">Азизов Азиз</h2>
-          <p className="text-xs mt-3 text-[#8D99AF]">ID PMO: 589</p>
+          <h2 className="text-base font-bold">
+            {item?.lastName} {item?.firstName}
+          </h2>
+          <p className="text-xs mt-3 text-[#8D99AF]">ID PMO: {item?.login}</p>
         </div>
         <div>
           <div className="flex justify-between">
@@ -20,13 +28,19 @@ const SidebarCard = () => {
             </div>
           </div>
 
-          <p className="text-xs mt-3 text-[#8D99AF]">Превышение перерыва</p>
+          <p className="text-xs mt-3 text-[#8D99AF]">
+            {item?.banInfo === "time"
+              ? "Превышение перерыва"
+              : "Переход блок на блок"}
+          </p>
         </div>
       </div>
 
       <div className="flex mt-2 p-1">
         <Image src="/clock.svg" alt="clock" width={16} height={16} />
-        <p className="text-sm ml-2 text-[#D733C8]">00:11:58</p>
+        <p className="text-sm ml-2 text-[#D733C8]">
+          {convertSeconds(item?.agentStateDuration)}
+        </p>
       </div>
     </div>
   );

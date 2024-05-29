@@ -5,10 +5,9 @@ import ListOperators from "@/components/dashboard/ListOperators";
 import MapCard from "@/components/dashboard/MapCard";
 import PieChartSideCard from "@/components/dashboard/PieChartCard";
 import StatisticsTabs from "@/components/dashboard/StatisticsTabs";
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
 import DashboardLayout from "./layout";
-import { ReportsContext } from "@/context/ReportsContext";
 const socketUrl = "http://192.168.42.176:1000/";
 
 const socket: Socket = io(socketUrl);
