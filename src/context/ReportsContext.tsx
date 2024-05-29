@@ -11,6 +11,8 @@ interface IReportsContext {
   setFromDate: (value: string) => void;
   toDate: string;
   setToDate: (value: string) => void;
+  isReportsDataLoading: boolean;
+  setIsReportsDataLoading: (value: boolean) => void;
 }
 
 type ReportsContextType = {
@@ -26,6 +28,8 @@ const defaultContextValue: IReportsContext = {
   setFromDate: () => {},
   toDate: "",
   setToDate: () => {},
+  isReportsDataLoading: false,
+  setIsReportsDataLoading: () => {},
 };
 
 export const ReportsContext =
@@ -36,6 +40,8 @@ const ReportsContextProvider: FC<ReportsContextType> = ({ children }) => {
   const [reportsData, setReportsData] = useState<[]>([]);
   const [fromDate, setFromDate] = useState<string>("");
   const [toDate, setToDate] = useState<string>("");
+  const [isReportsDataLoading, setIsReportsDataLoading] =
+    useState<boolean>(false);
 
   return (
     <ReportsContext.Provider
@@ -48,6 +54,8 @@ const ReportsContextProvider: FC<ReportsContextType> = ({ children }) => {
         setFromDate,
         toDate,
         setToDate,
+        isReportsDataLoading,
+        setIsReportsDataLoading,
       }}
     >
       {children}

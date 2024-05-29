@@ -12,6 +12,7 @@ const SearchInput: FC = () => {
   const { reportStatus } = useContext(ReportsContext);
 
   const { setReportsData } = useContext(ReportsContext);
+  const { setIsReportsDataLoading } = useContext(ReportsContext);
   const [inputValue, setInputValue] = useState<string>("");
 
   const swtichReportStatus = function () {
@@ -42,6 +43,7 @@ const SearchInput: FC = () => {
 
     const fetchData = async () => {
       try {
+        setIsReportsDataLoading(true);
         const response = await fetch(
           reportStatus === "all"
             ? `http://192.168.42.176:1000/api/v1/agents/findAllGraphandBlockData?login=${
@@ -69,10 +71,13 @@ const SearchInput: FC = () => {
         const result = await response.json();
         console.log(result);
 
-        reportStatus == "all"
-          ? setReportsData(result?.agents)
-          : setReportsData(result);
-
+        if (reportStatus == "all") {
+          setReportsData(result?.agents);
+          setIsReportsDataLoading(false);
+        } else {
+          setReportsData(result);
+          setIsReportsDataLoading(false);
+        }
       } catch (error) {
         console.log(error);
       }

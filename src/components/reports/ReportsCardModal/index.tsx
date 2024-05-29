@@ -54,8 +54,10 @@ const ReportsCardModal: FC<ModalType> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const { fromDate } = useContext(ReportsContext);
   const { toDate } = useContext(ReportsContext);
+
   const [cardModalDataType, seTCardModalDataType] = useState("all");
   const [modalData, setModalData] = useState<ISingleModalData[]>([]);
+  const [isModalDataLoading, setIsModalDataLoading] = useState<boolean>(false);
 
   const correctedFromDate = correctDate(fromDate);
   const correctedToDate = correctDate(toDate);
@@ -75,10 +77,9 @@ const ReportsCardModal: FC<ModalType> = ({
   }, []);
 
   useEffect(() => {
-    console.log(id);
-    
     const fetchData = async () => {
       try {
+        setIsModalDataLoading(true);
         const response1 = await fetch(
           `http://192.168.42.176:1000/api/v1/agents/findLockData?agent_id=${id}&type_block=all&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
         );
@@ -94,8 +95,9 @@ const ReportsCardModal: FC<ModalType> = ({
           throw new Error(`HTTP error! status: ${response2.status}`);
         }
         const result2 = await response2.json();
-        
+
         setModalData([...result1?.data?.results, ...result2?.data?.results]);
+        setIsModalDataLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -103,6 +105,7 @@ const ReportsCardModal: FC<ModalType> = ({
 
     const fetchSecondData = async () => {
       try {
+        setIsModalDataLoading(true);
         const response = await fetch(
           cardModalDataType === "exceeding-time" ||
             cardModalDataType === "block-to-block"
@@ -118,6 +121,7 @@ const ReportsCardModal: FC<ModalType> = ({
         }
         const result = await response.json();
         setModalData(result?.data?.results);
+        setIsModalDataLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -143,7 +147,7 @@ const ReportsCardModal: FC<ModalType> = ({
       />
       <ReportsCardModalTable
         modalData={modalData}
-        // setModalData={setModalData}
+        isModalDataLoading={isModalDataLoading}
         cardModalDataType={cardModalDataType}
       />
     </div>

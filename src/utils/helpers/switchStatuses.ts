@@ -13,6 +13,6 @@ export function switchStatuses(status: string) {
     case "work-less-nine-hours":
       return "worked_less";
     case "absence":
-      return "not_at_work ";
+      return "not_at_work";
   }
 }

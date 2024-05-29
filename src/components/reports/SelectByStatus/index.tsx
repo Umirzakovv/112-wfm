@@ -11,13 +11,14 @@ import {
 } from "@/components/ui/select";
 import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 
 const SelectByStatus: FC = () => {
   const { reportStatus, setReportStatus } = useContext(ReportsContext);
   const { setReportsData } = useContext(ReportsContext);
   const { fromDate } = useContext(ReportsContext);
   const { toDate } = useContext(ReportsContext);
+  const { setIsReportsDataLoading } = useContext(ReportsContext);
 
   const onValueChange = (event: string) => {
     setReportStatus(event);
@@ -26,6 +27,7 @@ const SelectByStatus: FC = () => {
 
     const fetchData = async () => {
       try {
+        setIsReportsDataLoading(true);
         const response = await fetch(
           event === "all"
             ? `http://192.168.42.176:1000/api/v1/agents/findAllGraphandBlockData?login=null&fullname=null&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
@@ -48,8 +50,10 @@ const SelectByStatus: FC = () => {
 
         if (event === "all") {
           setReportsData(result?.agents);
+          setIsReportsDataLoading(false);
         } else {
           setReportsData(result);
+          setIsReportsDataLoading(false);
         }
       } catch (error) {
         console.log(error);

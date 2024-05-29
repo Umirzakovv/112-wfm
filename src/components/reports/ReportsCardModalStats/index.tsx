@@ -11,6 +11,7 @@ interface ISingleCard {
   CountAgentWorkedLess: number;
   CountAgentсomeToWorkLate: number;
   countAllbanInfo?: number;
+  CountNb?: number
 }
 type StatsType = {
   singleCardInfo: ISingleCard[];
@@ -32,6 +33,8 @@ const ReportsCardModalStats: FC<StatsType> = ({
       console.log("aria-valuetext is not set");
     }
   };
+  console.log(singleCardInfo);
+  
 
   return (
     <div className="flex justify-between gap-3 mb-5">
@@ -140,7 +143,7 @@ const ReportsCardModalStats: FC<StatsType> = ({
         <div className="ml-4">
           <p className="text-sm text-[#E83FE1]">Неявки</p>
           <p className="text-lg text-[#E83FE1]">
-            {singleCardInfo[0].CountAgentWorkedLess}
+            {singleCardInfo[0].CountNb}
           </p>
         </div>
       </div>
