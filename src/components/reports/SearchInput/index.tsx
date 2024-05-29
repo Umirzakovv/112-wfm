@@ -16,6 +16,8 @@ const SearchInput: FC = () => {
 
   const swtichReportStatus = function () {
     switch (reportStatus) {
+      case "all":
+        return "findAllGraphandBlockData";
       case "exceeding-break":
         return "findallBanTimeData";
       case "block-to-block":
@@ -34,20 +36,43 @@ const SearchInput: FC = () => {
   };
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const correctedFromDate = correctDate(fromDate);
+    const correctedToDate = correctDate(toDate);
+
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://192.168.42.176:1000/api/v1/agents/${swtichReportStatus()}?login=${
-            inputValue && !isNaN(Number(inputValue)) ? inputValue : null
-          }&fullname=${
-            inputValue && isNaN(Number(inputValue)) ? inputValue.trim() : null
-          }&fromDate=${correctDate(fromDate)}&untilDate=${correctDate(toDate)}`
+          reportStatus === "all"
+            ? `http://192.168.42.176:1000/api/v1/agents/findAllGraphandBlockData?login=${
+                inputValue && !isNaN(Number(inputValue))
+                  ? inputValue.trim()
+                  : null
+              }&fullname=${
+                inputValue && isNaN(Number(inputValue))
+                  ? inputValue.trim()
+                  : null
+              }&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
+            : `http://192.168.42.176:1000/api/v1/agents/${swtichReportStatus()}?login=${
+                inputValue && !isNaN(Number(inputValue))
+                  ? inputValue.trim()
+                  : null
+              }&fullname=${
+                inputValue && isNaN(Number(inputValue))
+                  ? inputValue.trim()
+                  : null
+              }&fromDate=${correctedFromDate}&untilDate=${correctedToDate})}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        setReportsData(result);
+        console.log(result);
+
+        reportStatus == "all"
+          ? setReportsData(result?.agents)
+          : setReportsData(result);
+
       } catch (error) {
         console.log(error);
       }

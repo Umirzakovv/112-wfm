@@ -32,7 +32,7 @@ export const ReportsContext =
   createContext<IReportsContext>(defaultContextValue);
 
 const ReportsContextProvider: FC<ReportsContextType> = ({ children }) => {
-  const [reportStatus, setReportStatus] = useState<string>("exceeding-break");
+  const [reportStatus, setReportStatus] = useState<string>("all");
   const [reportsData, setReportsData] = useState<[]>([]);
   const [fromDate, setFromDate] = useState<string>("");
   const [toDate, setToDate] = useState<string>("");

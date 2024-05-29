@@ -9,26 +9,6 @@ import { IoExitOutline } from "react-icons/io5";
 import { PiPersonSimpleRunLight } from "react-icons/pi";
 import { ISingleModalData } from "../ReportsCardModal";
 
-// type ModalItemType = {
-//   agentState: string;
-//   agentStateDuration: string;
-//   agent_id: string;
-//   banInfo: string;
-//   create_data: string;
-//   firstName: string;
-//   id: string;
-//   lastAgentStateDuration: string;
-//   lastLockCause: string;
-//   lastName: string;
-//   lockCause: string;
-//   login: number;
-//   secondName: string;
-//   ComeToWorkOnTime: boolean;
-//   LeftAfterWork: boolean;
-//   LastLoginTime: string;
-//   TimeEndWork: string;
-// };
-
 type TableType = {
   modalData: ISingleModalData[];
   cardModalDataType: string;
@@ -38,8 +18,6 @@ const ReportsCardModalTable: FC<TableType> = ({
   modalData,
   cardModalDataType,
 }) => {
-  console.log(modalData);
-
   return (
     <table className="border-collapse w-full">
       <thead>

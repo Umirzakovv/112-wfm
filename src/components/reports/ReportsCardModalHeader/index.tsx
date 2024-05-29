@@ -22,7 +22,7 @@ type HeaderType = {
 
 const ReportsCardModalHeader: FC<HeaderType> = ({ singleCardInfo }) => {  
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center h-max mb-5">
       <div>
         <h2 className="text-lg text-main_text">{singleCardInfo[0]?.name}</h2>
         <p className="text-sm text-text_grey">ID РМ: {singleCardInfo[0]?.id_login}</p>

@@ -43,6 +43,8 @@ const ReportsCards: FC = () => {
     setSingleCardInfo(lorem);
     setIsModalOpen(!isModalOpen);
   };
+  console.log(reportsData);
+  
 
   return (
     <div>

@@ -36,8 +36,8 @@ export interface ISingleModalData {
   typeWork: string;
   update_data: string;
   banInfo: string;
-  agentStateDuration:string
-  lastAgentStateDuration:string
+  agentStateDuration: string;
+  lastAgentStateDuration: string;
 }
 
 type ModalType = {
@@ -54,7 +54,7 @@ const ReportsCardModal: FC<ModalType> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const { fromDate } = useContext(ReportsContext);
   const { toDate } = useContext(ReportsContext);
-  const [cardModalDataType, seTCardModalDataType] = useState("");
+  const [cardModalDataType, seTCardModalDataType] = useState("all");
   const [modalData, setModalData] = useState<ISingleModalData[]>([]);
 
   const correctedFromDate = correctDate(fromDate);
@@ -75,6 +75,8 @@ const ReportsCardModal: FC<ModalType> = ({
   }, []);
 
   useEffect(() => {
+    console.log(id);
+    
     const fetchData = async () => {
       try {
         const response1 = await fetch(
@@ -92,6 +94,7 @@ const ReportsCardModal: FC<ModalType> = ({
           throw new Error(`HTTP error! status: ${response2.status}`);
         }
         const result2 = await response2.json();
+        
         setModalData([...result1?.data?.results, ...result2?.data?.results]);
       } catch (error) {
         console.log(error);
@@ -130,10 +133,11 @@ const ReportsCardModal: FC<ModalType> = ({
   return (
     <div
       ref={modalRef}
-      className="bg-white w-[1600px] max-h-[800px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-5 rounded-lg shadow-lg border overflow-y-scroll	 dark:bg-main_dark grid gap-5"
+      className="bg-white w-[1600px] h-[800px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-5 rounded-lg shadow-lg border overflow-y-scroll	 dark:bg-main_dark "
     >
       <ReportsCardModalHeader singleCardInfo={singleCardInfo} />
       <ReportsCardModalStats
+        cardModalDataType={cardModalDataType}
         singleCardInfo={singleCardInfo}
         seTCardModalDataType={seTCardModalDataType}
       />
