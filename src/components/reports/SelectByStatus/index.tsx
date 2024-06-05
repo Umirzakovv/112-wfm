@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 
 const SelectByStatus: FC = () => {
   const { reportStatus, setReportStatus } = useContext(ReportsContext);

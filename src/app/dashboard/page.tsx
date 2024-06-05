@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import BarGraph from "@/components/dashboard/BarGraph";
 import ListOperators from "@/components/dashboard/ListOperators";

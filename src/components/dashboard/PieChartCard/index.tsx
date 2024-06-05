@@ -1,3 +1,5 @@
+"use client"
+
 import PieChart from "@/components/reusable/PieChart";
 import { Dispatch, FC, SetStateAction } from "react";
 import StatisiticsBtns from "../StatisticsBtns";

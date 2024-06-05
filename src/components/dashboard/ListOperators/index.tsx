@@ -1,3 +1,5 @@
+"use client";
+
 import { IData } from "@/utils/types-interfaces/dashboard";
 import Image from "next/image";
 import { FC } from "react";
@@ -11,9 +13,7 @@ type ListOperators = {
 
 const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
   return (
-    <div
-      className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto dark:bg-main_grey"
-    >
+    <div className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto dark:bg-main_grey">
       <div className="flex justify-between items-center mb-5">
         <h6 className="text-lg font-bold text-main_blue">
           {switchTitle(typeOperators)}

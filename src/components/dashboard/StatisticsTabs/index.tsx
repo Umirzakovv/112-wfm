@@ -1,15 +1,12 @@
+"use client"
+
 import React, {
   Dispatch,
   FC,
   SetStateAction,
-  useContext,
-  useEffect,
-  useState,
 } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import StatisticsTab from "../StatisticsTab";
-import { DashboardContext } from "@/context/DashboardContext";
-import { correctDate } from "@/utils/helpers/correctDate";
 
 type StatisticsTabsType = {
   acceptedCalls: number;

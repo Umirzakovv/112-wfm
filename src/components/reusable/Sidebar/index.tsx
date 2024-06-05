@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+"use client";
 import { FC, useContext, useEffect } from "react";
 import SidebarCard from "../SidebarCard";
 import { Socket, io } from "socket.io-client";
@@ -52,7 +54,7 @@ const Sidebar: FC<SidebarType> = ({ className }) => {
     setInterval(() => {
       fetchData();
     }, 7000);
-    fetchData()
+    fetchData();
   }, []);
 
   return (

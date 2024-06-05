@@ -1,11 +1,12 @@
+"use client"
+
 import HeaderFilter from "@/components/dashboard/HeaderFilter";
 import Header from "@/components/reusable/Header";
 import MainContent from "@/components/reusable/MainContent";
-import { DashboardContext } from "@/context/DashboardContext";
-import React, { FC, useContext } from "react";
+import { FC, ReactNode } from "react";
 
 type DashboardLayoutType = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const DashboardLayout: FC<DashboardLayoutType> = ({ children }) => {

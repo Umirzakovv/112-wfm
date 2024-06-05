@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import MapUzb from "../MapUzb";
 import FilterByRegion from "../FilterByRegion";
