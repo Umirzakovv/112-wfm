@@ -1,18 +1,42 @@
-import React from "react";
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import StatisticsTab from "../StatisticsTab";
+import { DashboardContext } from "@/context/DashboardContext";
+import { correctDate } from "@/utils/helpers/correctDate";
 
-const StatisticsTabs = () => {
+type StatisticsTabsType = {
+  acceptedCalls: number;
+  presentedCalls: number;
+  lostCalls: number;
+  lostAtQueue: number;
+  setTabType: Dispatch<SetStateAction<string>>;
+};
 
-  // const handle
+const StatisticsTabs: FC<StatisticsTabsType> = ({
+  acceptedCalls,
+  presentedCalls,
+  lostCalls,
+  lostAtQueue,
+  setTabType,
+}) => {
+  const handleTabClick = (e: string) => {
+    setTabType(e);
+  };
 
   return (
-    <Tabs defaultValue="acceptedCalls">
+    <Tabs defaultValue="acceptedCalls" onValueChange={(e) => handleTabClick(e)}>
       <TabsList className="h-max shadow-lg w-full dark:bg-main_grey">
         <TabsTrigger value="acceptedCalls">
           <StatisticsTab
             title="Поступившие звонки"
-            amount={10000}
+            amount={acceptedCalls}
             color="#fdfdtf"
           />
         </TabsTrigger>
@@ -20,7 +44,7 @@ const StatisticsTabs = () => {
         <TabsTrigger value="presentedCalls">
           <StatisticsTab
             title="Предоствленные звонки"
-            amount={10000}
+            amount={presentedCalls}
             color="#32C9A3"
           />
         </TabsTrigger>
@@ -28,15 +52,15 @@ const StatisticsTabs = () => {
         <TabsTrigger value="lostCalls">
           <StatisticsTab
             title="Потерянные звонки"
-            amount={10000}
+            amount={lostCalls}
             color="#FFD023"
           />
         </TabsTrigger>
 
-        <TabsTrigger value="lostInQueue">
+        <TabsTrigger value="lostAtQueue">
           <StatisticsTab
             title="Отбывшихся в очереди"
-            amount={10000}
+            amount={lostAtQueue}
             color="#DD4545"
           />
         </TabsTrigger>

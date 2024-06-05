@@ -7,10 +7,10 @@ import { IData } from "@/utils/types-interfaces/dashboard";
 Chart.register(ArcElement);
 
 type PieChartType = {
-  data: IData[];
+  sidebarData: IData[];
 };
 
-const PieChart: FC<PieChartType> = ({ data }) => {
+const PieChart: FC<PieChartType> = ({ sidebarData }) => {
   const colors = ["#111c7d", "#349e84", "#c4a32a", "#9e3487", "#b54747"];
   return (
     <div className="w-[234px]">
@@ -21,11 +21,11 @@ const PieChart: FC<PieChartType> = ({ data }) => {
             {
               label: "Статистика",
               data: [
-                data[0]?.queue,
-                data[0]?.online,
-                data[0]?.in_job,
-                data[0]?.free,
-                data[0]?.locked,
+                sidebarData[0]?.queue,
+                sidebarData[0]?.online,
+                sidebarData[0]?.in_job,
+                sidebarData[0]?.free,
+                sidebarData[0]?.locked,
               ],
               backgroundColor: colors,
               borderColor: colors,

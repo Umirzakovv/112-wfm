@@ -4,8 +4,12 @@ import "../style/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import MainContextProvider from "@/context";
 import DashboardContextProvider from "@/context/DashboardContext";
+import ReportsContextProvider from "@/context/ReportsContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "112 | WFM",
@@ -27,7 +31,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainContextProvider>
-            <DashboardContextProvider>{children}</DashboardContextProvider>
+            <DashboardContextProvider>
+              <ReportsContextProvider>{children}</ReportsContextProvider>
+            </DashboardContextProvider>
           </MainContextProvider>
         </ThemeProvider>
       </body>

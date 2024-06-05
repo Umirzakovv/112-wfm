@@ -43,9 +43,6 @@ const ReportsCards: FC = () => {
     setSingleCardInfo(lorem);
     setIsModalOpen(!isModalOpen);
   };
-  console.log(reportsData);
-  
-
   return (
     <div>
       <div className={`grid grid-cols-4 gap-10`}>

@@ -3,18 +3,18 @@ import StatisiticsBtn from "../StatisticsBtn";
 import { IData } from "@/utils/types-interfaces/dashboard";
 
 type BtnsType = {
-  data: IData[];
+  sidebarData: IData[];
   setTypeOperators: Dispatch<SetStateAction<string>>;
 };
 
-const StatisiticsBtns: FC<BtnsType> = ({ data, setTypeOperators }) => {
+const StatisiticsBtns: FC<BtnsType> = ({ sidebarData, setTypeOperators }) => {
   const handleBtnClick = (e: MouseEvent<HTMLButtonElement>) => {
     setTypeOperators(e?.currentTarget?.value);
   };
 
   return (
     <>
-      {data?.map((item) => {
+      {sidebarData?.map((item) => {
         return (
           <div key={item?.goup_id} className="grid gap-3">
             <StatisiticsBtn

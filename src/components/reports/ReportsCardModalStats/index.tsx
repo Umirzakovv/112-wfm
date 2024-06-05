@@ -33,9 +33,6 @@ const ReportsCardModalStats: FC<StatsType> = ({
       console.log("aria-valuetext is not set");
     }
   };
-  console.log(singleCardInfo);
-  
-
   return (
     <div className="flex justify-between gap-3 mb-5">
       <div

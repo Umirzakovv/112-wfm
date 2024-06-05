@@ -28,7 +28,7 @@ export function DatePicker({
 }: DatePickerType) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(),
-    to: addDays(new Date(), 30),
+    to: new Date(),
   });
 
   React.useEffect(() => {

@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect } from "react";
 import SidebarCard from "../SidebarCard";
 import { Socket, io } from "socket.io-client";
+import { DashboardContext } from "@/context/DashboardContext";
 
 type SidebarType = {
   className?: string;
@@ -40,20 +41,26 @@ const socketUrl = "http://192.168.42.176:1000/";
 const socket: Socket = io(socketUrl);
 
 const Sidebar: FC<SidebarType> = ({ className }) => {
-  const [sidebarData, setSidebarData] = useState<SidebarDataType[]>([]);
+  const { notifcationData, setNotifcationData } = useContext(DashboardContext);
+
   useEffect(() => {
-    socket.emit("agentsLockAtTheMoment", (receivedData: []) => {
-      setSidebarData(receivedData);
-      console.log(receivedData);
-    });
+    const fetchData = () => {
+      socket.emit("agentsLockAtTheMoment", (receivedData: []) => {
+        setNotifcationData(receivedData);
+      });
+    };
+    setInterval(() => {
+      fetchData();
+    }, 7000);
+    fetchData()
   }, []);
 
   return (
     <div
-      className={`${className} transition-all duration-200 ease-linear overflow-hidden ml-5 rounded-t-md rounded-b-md bg-white h-[80vh] overflow-y-scroll dark:bg-main_grey`}
+      className={`${className} transition-all duration-100 ease-linear overflow-hidden ml-5 rounded-t-md rounded-b-md bg-white h-[80vh] overflow-y-scroll dark:bg-main_dark`}
     >
       <h6 className="text-center mt-2 font-semibold">Список нарушающих </h6>
-      {sidebarData?.map((item: SidebarDataType) => {
+      {notifcationData?.map((item: SidebarDataType) => {
         return <SidebarCard key={item?.agent_id} item={item} />;
       })}
     </div>

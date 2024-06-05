@@ -4,18 +4,18 @@ import StatisiticsBtns from "../StatisticsBtns";
 import { IData } from "@/utils/types-interfaces/dashboard";
 
 type PieChartSideCardType = {
-  data: IData[];
+  sidebarData: IData[];
   setTypeOperators: Dispatch<SetStateAction<string>>;
 };
 
 const PieChartSideCard: FC<PieChartSideCardType> = ({
-  data,
+  sidebarData,
   setTypeOperators,
 }) => {
   return (
     <div className="bg-white rounded-lg flex justify-between items-center py-7 px-20 w-full dark:bg-main_grey">
-      <PieChart data={data} />
-      <StatisiticsBtns data={data} setTypeOperators={setTypeOperators} />
+      <PieChart sidebarData={sidebarData} />
+      <StatisiticsBtns sidebarData={sidebarData} setTypeOperators={setTypeOperators} />
     </div>
   );
 };

@@ -10,16 +10,18 @@ type SidebarCardType = {
 const SidebarCard: FC<SidebarCardType> = ({ item }) => {
   return (
     <div className="shadow-lg rounded-md m-2">
-      <div className="p-1 rounded-md flex justify-between items-center bg-[#ffdefc]">
+      <div className="p-1 rounded-md flex justify-between items-center bg-[#ffdefc] dark:bg-[#303030]">
         <div className="bg-white w-max h-max p-3 rounded-full">
           <Image src="/card-user.svg" alt="card user" width={19} height={19} />
         </div>
+
         <div>
           <h2 className="text-base font-bold">
             {item?.lastName} {item?.firstName}
           </h2>
           <p className="text-xs mt-3 text-[#8D99AF]">ID PMO: {item?.login}</p>
         </div>
+
         <div>
           <div className="flex justify-between">
             <p></p>
@@ -37,9 +39,12 @@ const SidebarCard: FC<SidebarCardType> = ({ item }) => {
       </div>
 
       <div className="flex mt-2 p-1">
-        <Image src="/clock.svg" alt="clock" width={16} height={16} />
-        <p className="text-sm ml-2 text-[#D733C8]">
-          {convertSeconds(item?.agentStateDuration)}
+        <p className={`text-sm ml-2 text-[#D733C8]`}>
+          {item?.banInfo === "time"
+            ? convertSeconds(item?.agentStateDuration)
+            : `${convertSeconds(
+                item?.lastAgentStateDuration
+              )} - ${convertSeconds(item?.agentStateDuration)}`}
         </p>
       </div>
     </div>

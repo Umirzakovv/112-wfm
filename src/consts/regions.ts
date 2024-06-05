@@ -95,6 +95,6 @@ export const regions = [
   {
     id: 4,
     pathId: "khorezm",
-    name: "112 Хорезм",
+    name: "112 Харезм",
   },
 ];

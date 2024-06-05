@@ -5,11 +5,11 @@ import SingleListOperators from "../SingleListOperators";
 import { switchTitle } from "@/utils/helpers/switchTitle";
 
 type ListOperators = {
-  data: IData[];
+  sidebarData: IData[];
   typeOperators: string;
 };
 
-const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
+const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
   return (
     <div
       className="bg-white rounded-lg p-5 w-full h-[400px] overflow-auto dark:bg-main_grey"
@@ -24,7 +24,7 @@ const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
         {typeOperators === "default"
           ? ""
           : typeOperators === "Заблокированные"
-          ? data[0]?.blockAgenst?.map((item, index) => {
+          ? sidebarData[0]?.blockAgenst?.map((item, index) => {
               return (
                 <SingleListOperators
                   key={index}
@@ -35,7 +35,7 @@ const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
               );
             })
           : typeOperators === "В работе"
-          ? data[0]?.busyAgents?.map((item, index) => {
+          ? sidebarData[0]?.busyAgents?.map((item, index) => {
               return (
                 <SingleListOperators
                   key={index}
@@ -46,7 +46,7 @@ const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
               );
             })
           : typeOperators === "Свободные"
-          ? data[0]?.freeAgents?.map((item, index) => {
+          ? sidebarData[0]?.freeAgents?.map((item, index) => {
               return (
                 <SingleListOperators
                   key={index}
@@ -58,9 +58,9 @@ const ListOperators: FC<ListOperators> = ({ data, typeOperators }) => {
             })
           : typeOperators === "В сети"
           ? [
-              ...data[0]?.blockAgenst,
-              ...data[0]?.busyAgents,
-              ...data[0]?.freeAgents,
+              ...sidebarData[0]?.blockAgenst,
+              ...sidebarData[0]?.busyAgents,
+              ...sidebarData[0]?.freeAgents,
             ]?.map((item, index) => {
               return (
                 <SingleListOperators

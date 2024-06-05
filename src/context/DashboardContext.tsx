@@ -7,6 +7,10 @@ interface IDashboardContext {
   setFromDate: (value: string) => void;
   toDate: string;
   setToDate: (value: string) => void;
+  sidebarData: [];
+  setSidebarData: (value: []) => void;
+  notifcationData: [];
+  setNotifcationData: (value: []) => void;
 }
 
 const defaultContextValue: IDashboardContext = {
@@ -14,6 +18,10 @@ const defaultContextValue: IDashboardContext = {
   setFromDate: () => {},
   toDate: "",
   setToDate: () => {},
+  sidebarData: [],
+  setSidebarData: () => {},
+  notifcationData: [],
+  setNotifcationData: () => {},
 };
 
 export const DashboardContext =
@@ -23,12 +31,24 @@ type DashboardContextType = {
   children: React.ReactNode;
 };
 const DashboardContextProvider: FC<DashboardContextType> = ({ children }) => {
-  const [fromDate, setFromDate] = useState<string>("");
-  const [toDate, setToDate] = useState<string>("");
+  const [sidebarData, setSidebarData] = useState<[]>([]);
+  const [notifcationData, setNotifcationData] = useState<[]>([]);
+
+  const [fromDate, setFromDate] = useState<string>(String(new Date()));
+  const [toDate, setToDate] = useState<string>(String(new Date()));
 
   return (
     <DashboardContext.Provider
-      value={{ fromDate, setFromDate, toDate, setToDate }}
+      value={{
+        fromDate,
+        setFromDate,
+        toDate,
+        setToDate,
+        sidebarData,
+        setSidebarData,
+        notifcationData,
+        setNotifcationData,
+      }}
     >
       {children}
     </DashboardContext.Provider>

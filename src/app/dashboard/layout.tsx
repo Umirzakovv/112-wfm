@@ -1,7 +1,8 @@
 import HeaderFilter from "@/components/dashboard/HeaderFilter";
 import Header from "@/components/reusable/Header";
 import MainContent from "@/components/reusable/MainContent";
-import React, { FC } from "react";
+import { DashboardContext } from "@/context/DashboardContext";
+import React, { FC, useContext } from "react";
 
 type DashboardLayoutType = {
   children: React.ReactNode;

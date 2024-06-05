@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ReportsContext } from "@/context/ReportsContext";
 import { correctDate } from "@/utils/helpers/correctDate";
+import { capitalizeFirstLetter } from "@/utils/helpers/capitalizeFirstLetter";
 
 const SearchInput: FC = () => {
   const { fromDate } = useContext(ReportsContext);
@@ -52,7 +53,7 @@ const SearchInput: FC = () => {
                   : null
               }&fullname=${
                 inputValue && isNaN(Number(inputValue))
-                  ? inputValue.trim()
+                  ? capitalizeFirstLetter(inputValue).trim()
                   : null
               }&pageNumber=1&pageSize=100&fromDate=${correctedFromDate}&untilDate=${correctedToDate}`
             : `http://192.168.42.176:1000/api/v1/agents/${swtichReportStatus()}?login=${
@@ -69,7 +70,6 @@ const SearchInput: FC = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log(result);
 
         if (reportStatus == "all") {
           setReportsData(result?.agents);
@@ -83,7 +83,6 @@ const SearchInput: FC = () => {
       }
     };
     fetchData();
-    setInputValue("");
   };
   return (
     <form
@@ -94,7 +93,7 @@ const SearchInput: FC = () => {
       <Input
         type="text"
         id="text"
-        placeholder="Фамилия с большой буквы"
+        placeholder="Поиск"
         value={inputValue}
         onChange={(e) => onValueChange(e)}
       />
