@@ -28,6 +28,7 @@ const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
               return (
                 <SingleListOperators
                   key={index}
+                  index={index}
                   lastName={item?.["ct:lastName"]}
                   firstName={item?.["ct:firstName"]}
                   secondName={item?.["ct:secondName"]}
@@ -39,6 +40,7 @@ const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
               return (
                 <SingleListOperators
                   key={index}
+                  index={index}
                   lastName={item?.["ct:lastName"]}
                   firstName={item?.["ct:firstName"]}
                   secondName={item?.["ct:secondName"]}
@@ -50,6 +52,7 @@ const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
               return (
                 <SingleListOperators
                   key={index}
+                  index={index}
                   lastName={item?.["ct:lastName"]}
                   firstName={item?.["ct:firstName"]}
                   secondName={item?.["ct:secondName"]}
@@ -65,6 +68,7 @@ const ListOperators: FC<ListOperators> = ({ sidebarData, typeOperators }) => {
               return (
                 <SingleListOperators
                   key={index}
+                  index={index}
                   lastName={item?.["ct:lastName"]}
                   firstName={item?.["ct:firstName"]}
                   secondName={item?.["ct:secondName"]}

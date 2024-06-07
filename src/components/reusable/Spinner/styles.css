@@ -4,8 +4,6 @@
 }
 
 .orbit-spinner {
-  height: 55px;
-  width: 55px;
   border-radius: 50%;
   perspective: 800px;
 }
@@ -22,21 +20,21 @@
   left: 0%;
   top: 0%;
   animation: orbit-spinner-orbit-one-animation 700ms linear infinite;
-  border-bottom: 3px solid #4f46e5;
+  /* border-bottom: 3px solid #4f46e5; */
 }
 
 .orbit-spinner .orbit:nth-child(2) {
   right: 0%;
   top: 0%;
   animation: orbit-spinner-orbit-two-animation 700ms linear infinite;
-  border-right: 3px solid #4f46e5;
+  /* border-right: 3px solid #4f46e5; */
 }
 
 .orbit-spinner .orbit:nth-child(3) {
   right: 0%;
   bottom: 0%;
   animation: orbit-spinner-orbit-three-animation 700ms linear infinite;
-  border-top: 3px solid #4f46e5;
+  /* border-top: 3px solid #4f46e5; */
 }
 
 @keyframes orbit-spinner-orbit-one-animation {

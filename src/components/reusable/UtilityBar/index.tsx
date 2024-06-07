@@ -1,6 +1,7 @@
+"use client"
+
 import Image from "next/image";
 import { FC, useContext } from "react";
-import LanguageSelect from "../Language";
 import { useTheme } from "next-themes";
 import { MainContext } from "@/context";
 import { DashboardContext } from "@/context/DashboardContext";

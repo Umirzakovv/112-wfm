@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useContext } from "react";
 import { DatePicker } from "../../reusable/DatePicker";
 import FilterByDayWeekMonth from "@/components/reusable/FilterByDayWeekMonth";
