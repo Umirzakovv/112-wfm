@@ -13,8 +13,6 @@ const SingleListOperators: FC<OperatorsType> = ({
   secondName,
   index,
 }) => {
-  console.log(index);
-
   return (
     <p className="text-lg text-[#000]">
       {index ? index + 1 : 1}. {lastName} {firstName} {secondName}

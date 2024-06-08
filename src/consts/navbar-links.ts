@@ -14,4 +14,9 @@ export const navbarLinks = [
     title: "График работы сотрудников",
     href: "/schedule",
   },
+  {
+    id: 4,
+    title: "База данных сотрудников",
+    href: "/datebase-employees",
+  },
 ];
