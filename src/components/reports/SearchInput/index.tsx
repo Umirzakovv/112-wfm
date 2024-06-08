@@ -62,7 +62,7 @@ const SearchInput: FC = () => {
                   : null
               }&fullname=${
                 inputValue && isNaN(Number(inputValue))
-                  ? inputValue.trim()
+                  ? capitalizeFirstLetter(inputValue.trim())
                   : null
               }&fromDate=${correctedFromDate}&untilDate=${correctedToDate})}`
         );
